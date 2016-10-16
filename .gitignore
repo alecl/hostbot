@@ -48,6 +48,12 @@ jspm_packages
 *.pem
 *.cred
 
+# Allow sharing just key .vscode files but not all
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
 # OS generated files #
 ######################
 .DS_Store

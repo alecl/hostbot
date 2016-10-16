@@ -1,6 +1,7 @@
 var Botkit = require('botkit')
+var externalvars = require('./config/externalvars.js');
 
-var token = process.env.SLACK_TOKEN
+var token = externalvars.SLACK_TOKEN
 
 var controller = Botkit.slackbot({
   // reconnect to Slack RTM when connection goes bad
@@ -27,6 +28,13 @@ if (token) {
   require('beepboop-botkit').start(controller, { debug: true })
 }
 
+// Load all skills for files in the skills folders
+var normalizedPath = require("path").join(__dirname, "skills");
+require("fs").readdirSync(normalizedPath).forEach(function (file) {
+    require("./skills/" + file)(controller);
+});
+
+/*
 controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
 })
@@ -75,3 +83,4 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
+*/

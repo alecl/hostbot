@@ -1,14 +1,14 @@
 {
-  "name": "node-slack-bot",
+  "name": "hostbot",
   "version": "1.0.0",
-  "description": "A sample Beep Boop Node.js Slackbot",
+  "description": "A node.js simple bot for MeetUp hosting assistance. Host yourself or on Beep Boop.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beepboophq/node-slack-bot.git"
+    "url": "git+https://github.com/alecl/hostbot"
   },
   "keywords": [
     "slackbot",
@@ -18,11 +18,13 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beepboophq/node-slack-bot/issues"
+    "url": "https://github.com/alecl/hostbot/issues"
   },
-  "homepage": "https://github.com/beepboophq/node-slack-bot#readme",
+  "homepage": "https://github.com/alecl/hostbot#readme",
   "dependencies": {
     "beepboop-botkit": "^1.4.1",
-    "botkit": "~0.2.2"
+    "botkit": "~0.2.2",
+    "dateformat": "^1.0.12",
+    "meetup-api": "^1.4.6"
   }
 }
