@@ -17,6 +17,7 @@ module.exports = function (controller) {
         // TODO: Can't seem to get to events from the past from groups API. Sending eventId directly for now. 
         meetup.getEvents({ event_id: meetupEventId }, function (err, resp) {
             var eventData = resp.results[0];
+            var modDateTime = eventData.time+eventData.utc_offset; // so we can display properly regardless of nodeJs server time zone
             var reply =
                 {
                     "text": "<http://www.meetup.com/" + meetupGroupUrlName + "/events/" + meetupEventId + "/|Meetup: " + eventData.name + ">",
@@ -27,7 +28,7 @@ module.exports = function (controller) {
                             "fields": [
                                 {
                                     "title": "Time",
-                                    "value": dateFormat(eventData.time, "mm-dd-yy h:MM TT"),
+                                    "value": dateFormat(modDateTime, "UTC:mm-dd-yy h:MM TT"),
                                     "short": true
                                 },
                                 {
