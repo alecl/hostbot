@@ -2,7 +2,7 @@ name: hostbot
 description: A node.js simple bot for MeetUp hosting assistance. Host yourself or on Beep Boop.
 avatar: resources/avatar.png
 #background: resources/background.png
-#config:
+config:
   - name: MEETUP_API_KEY
     friendly_name: Meetup API Key
     info: Get information about our events from www.meetup.com
