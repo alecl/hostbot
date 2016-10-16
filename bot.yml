@@ -15,12 +15,12 @@ config:
     default: ""    
   - name: MEETUP_GROUP_URLNAME
     friendly_name: Meetup Group URL name piece for your group
-    info: "(optional) Used for Meetup API - http://www.meetup.com/<UrlName>/events/<EventId>/"
+    info: "(optional) Used for Meetup API - http://www.meetup.com/[UrlName]/events/[EventId]/"
     type: secret
     default: ""    
   - name: MEETUP_EVENT_ID
     friendly_name: Meetup Event ID for an event in your group
-    info: "(optional) Used for Meetup API - http://www.meetup.com/<UrlName>/events/<EventId>/"
+    info: "(optional) Used for Meetup API - http://www.meetup.com/[UrlName]/events/[EventId]/"
     type: secret
     default: ""            
   - name: DASHBOT_API_KEY
