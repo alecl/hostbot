@@ -7,7 +7,6 @@ var configError = function (keyName) {
   process.exit(1);
 }
 
-// TODO: seee how this works with BeepBoop vars
 // TODO: extract repeated function?
 Object.defineProperty(module.exports, 'SLACK_TOKEN', {
     get: function() {
@@ -42,15 +41,6 @@ Object.defineProperty(module.exports, 'MEETUP_GROUP_URLNAME', {
             configError('MEETUP_GROUP_URLNAME');
         else
             return process.env.MEETUP_GROUP_URLNAME;
-    }
-});
-
-Object.defineProperty(module.exports, 'MEETUP_EVENT_ID', {
-    get: function() {
-        if (!process.env.MEETUP_EVENT_ID)
-            configError('MEETUP_EVENT_ID');
-        else
-            return process.env.MEETUP_EVENT_ID;
     }
 });
 

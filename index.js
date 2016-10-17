@@ -22,7 +22,7 @@ if (token) {
 
     console.log('Connected to Slack RTM')
   })
-// Otherwise assume multi-team mode - setup beep boop resourcer connection
+  // Otherwise assume multi-team mode - setup beep boop resourcer connection
 } else {
   console.log('Starting in Beep Boop multi-team mode')
   require('beepboop-botkit').start(controller, { debug: true })
@@ -31,7 +31,7 @@ if (token) {
 // Load all skills for files in the skills folders
 var normalizedPath = require("path").join(__dirname, "skills");
 require("fs").readdirSync(normalizedPath).forEach(function (file) {
-    require("./skills/" + file)(controller);
+  require("./skills/" + file)(controller);
 });
 
 /*
@@ -55,23 +55,11 @@ controller.hears('.*', ['mention'], function (bot, message) {
 controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
   var help = 'I will respond to the following messages: \n' +
       '`bot hi` for a simple message.\n' +
-      '`bot attachment` to see a Slack attachment message.\n' +
+      '`bot beepboop` to see a Slack attachment message.\n' +
       '`@<your bot\'s name>` to demonstrate detecting a mention.\n' +
       '`bot help` to see this again.'
   bot.reply(message, help)
 })
-
-controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
-  var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
-  var attachments = [{
-    fallback: text,
-    pretext: 'We bring bots to life. :sunglasses: :thumbsup:',
-    title: 'Host, deploy and share your bot in seconds.',
-    image_url: 'https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png',
-    title_link: 'https://beepboophq.com/',
-    text: text,
-    color: '#7CD197'
-  }]
 
   bot.reply(message, {
     attachments: attachments
@@ -79,8 +67,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     console.log(err, resp)
   })
 })
-
+*/
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
-*/
