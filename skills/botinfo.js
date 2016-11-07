@@ -57,6 +57,11 @@ module.exports = function (controller) {
         bot.reply(message, 'I was born on ' + bornOnDateFormatted + '. I do sometimes sleep or get upgraded though. The latest me has been up for ' + formatUptime(process.uptime())) + ".";
     });
 
+    controller.hears(['favorite color'], 'direct_message,direct_mention', function (bot, message) {
+
+        bot.reply(message, "My favorite color is blue!");
+    });
+
     function formatUptime(uptime) {
         var unit = 'second';
         if (uptime > 60) {
