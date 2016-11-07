@@ -6,7 +6,7 @@ module.exports = function (controller) {
 
     controller.hears(['hi', 'yo', 'hello', 'help', 'what'], 'direct_message,direct_mention', function (bot, message) {
         var reply = {
-            "text": "Hi, there! There are the commands I support. Just mention or DM me with them. More will come!",
+            "text": "Hi, there! There are the commands I support! Just mention or DM me with them. More will come!",
             "attachments": [
                 {
                     "text": "`meetup` / `event` Info on the first Meetup. Will be expanded in the future.",
